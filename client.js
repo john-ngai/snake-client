@@ -21,13 +21,11 @@ const connect = () => {
     console.log(`Server Message: ${data}`);
   });
 
-
-
   conn.on('end', () => {
     console.log(Date(), '\nDisconnected from the server...')
   })
 
   return conn;
-}
+};
 
 module.exports = {connect};
