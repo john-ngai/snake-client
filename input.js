@@ -41,6 +41,22 @@ const handleUserInput = (key) => {
     // process.stdout.write('Move: down');
     connection.write('Move: right');
   }
+
+  if (key === '1') {
+    connection.write('Say: *Burp*');
+  }
+
+  if (key === '2') {
+    connection.write('Say: Gobble Gobble');
+  }
+
+  if (key === '3') {
+    connection.write('Say: Excuse me!');
+  }
+
+  if (key === '4') {
+    connection.write("Say: We're low on food!");
+  }
 };
 
 module.exports = {setupInput};
