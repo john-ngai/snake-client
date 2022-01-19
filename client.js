@@ -8,15 +8,20 @@ const connect = () => {
   const conn = net.createConnection({
     host: '165.227.47.243', // IP address
     port: 50541,
-  }, () => {
-    console.log(Date(), '\nSuccessfully connected to the server!\n');
   });
 
   conn.setEncoding('utf8'); // interpret incoming data as text
 
-  conn.on('data', (data) => {
-    console.log(data);
+  conn.on('connect', () => {
+    console.log(Date(), '\nSuccessfully connected to the server!\n');
+    conn.write('Name: JMN');
   });
+
+  conn.on('data', (data) => {
+    console.log(`Server Message: ${data}`);
+  });
+
+
 
   conn.on('end', () => {
     console.log(Date(), '\nDisconnected from the server...')
